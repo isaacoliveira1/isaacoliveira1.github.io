@@ -24,11 +24,11 @@
                     src="assets/asset.gltf"
                 ></a-asset-item>
                 <a-asset-item
-                    id="animated-asset"
+                    id="animated-asset1"
                     src="assets/scene.gltf"
                 ></a-asset-item>
                 <a-asset-item
-                        id="animated-asset"
+                        id="animated-asset2"
                         src="assets/scene1.gltf"
                 ></a-asset-item>
             </a-assets>
@@ -50,6 +50,22 @@
                     gltf-model="#animated-asset"
                     class="clickable"
                     gesture-handler
+                ></a-entity>
+                <a-entity
+                        id="bowser-model"
+                        scale="0.09198480487827129 0.09198480487827129 0.09198480487827129"
+                        animation-mixer="loop: repeat"
+                        gltf-model="#animated-asset1"
+                        class="clickable"
+                        gesture-handler
+                ></a-entity>
+                <a-entity
+                        id="bowser-model"
+                        scale="0.09198480487827129 0.09198480487827129 0.09198480487827129"
+                        animation-mixer="loop: repeat"
+                        gltf-model="#animated-asset2"
+                        class="clickable"
+                        gesture-handler
                 ></a-entity>
             </a-marker>
 
