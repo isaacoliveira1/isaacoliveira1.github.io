@@ -18,88 +18,14 @@
         vr-mode-ui="enabled: false"
         embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-
+    <a-entity gltf-model="./assets/asset.gltf" rotation="0 180 0"
+              scale="0.5 0.5 0.5"
+              gps-entity-place="longitude: -51.179021; latitude: -23.303162;"
+             animation-mixer="loop: repeat"
+              class="clickable"
+              gesture-handler
+    />
     <a-camera gps-camera rotation-reader></a-camera>
 </a-scene>
-<div class="centered">
-    <button data-action="change"></button>
-</div>
+
 </body>
-<style>
-
-    .centered {
-        height: 20%;
-        justify-content: center;
-        position: fixed;
-        bottom: 0%;
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        margin: 0px auto;
-        left: 0;
-        right: 0;
-    }
-
-    button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid white;
-        background-color: transparent;
-        width: 2em;
-        height: 2em;
-        border-radius: 100%;
-        font-size: 2em;
-        background-color: rgba(0, 0, 0, 0.4);
-        color: white;
-        outline: none;
-    }
-
-    .instructions {
-        position: fixed;
-        top: 5%;
-        font-size: 1.25em;
-        color: white;
-        z-index: 999999;
-    }
-</style>
-<script>
-    window.onload = () => {
-        let places = staticLoadPlaces();
-        renderPlaces(places);
-    };
-
-    function staticLoadPlaces() {
-        return [
-            {
-                name: 'Casa',
-                location: {
-                    lat: -23.303162,
-                    lng: -51.179021,
-                }
-            },
-        ];
-    }
-
-    function renderPlaces(places) {
-        let scene = document.querySelector('a-scene');
-
-        places.forEach((place) => {
-            let latitude = place.location.lat;
-            let longitude = place.location.lng;
-
-            let model = document.createElement('a-entity');
-            model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-            model.setAttribute('gltf-model', './assets/asset.gltf');
-            model.setAttribute('rotation', '0 180 0');
-            model.setAttribute('animation-mixer', '');
-            model.setAttribute('scale', '0.5 0.5 0.5');
-
-            model.addEventListener('loaded', () => {
-                window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
-            });
-
-            scene.appendChild(model);
-        });
-    }
-</script>
