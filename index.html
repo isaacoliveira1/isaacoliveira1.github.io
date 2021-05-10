@@ -24,15 +24,16 @@
                 id="animated-asset"
                 src="assets/asset.gltf"
         ></a-asset-item>
+    </a-assets>
 
     <a-entity
             id="bowser-model"
-              scale="0.09198480487827129 0.09198480487827129 0.09198480487827129"
-              gps-entity-place="longitude: 12.489820; latitude: 41.892590;"
-              animation-mixer="loop: repeat"
+            scale="0.09198480487827129 0.09198480487827129 0.09198480487827129"
+            gps-entity-place="longitude: 12.489820; latitude: 41.892590;"
+            animation-mixer="loop: repeat"
             gltf-model="#animated-asset"
             class="clickable"
-              gesture-handler
+            gesture-handler
     />
     <a-camera gps-camera rotation-reader></a-camera>
 </a-scene>
